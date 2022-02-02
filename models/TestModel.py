@@ -1,4 +1,5 @@
 import torch.nn as nn
+from models.HighLevelLayer import HighLevelLayer
 
 
 class TestModel(nn.Module):
@@ -10,9 +11,7 @@ class TestModel(nn.Module):
         self.net = nn.Sequential(
             nn.Linear(input_size, 10),
             nn.ReLU(),
-            nn.Linear(10, 10),
-            nn.ReLU(),
-            nn.Linear(10, 16)
+            HighLevelLayer(10, 16),
         )
 
     def forward(self, x):
